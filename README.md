@@ -1,6 +1,6 @@
 <p align="center">
   <img
-    src="http://res.cloudinary.com/vidsy/image/upload/v1503160820/CoZ_Icon_DARKBLUE_200x178px_oq0gxm.png"
+    src="https://raw.githubusercontent.com/CityOfZion/visual-identity/develop/_CoZ%20Branding/_Logo/_Logo%20icon/_PNG%20200x178px/CoZ_Icon_DARKBLUE_200x178px.png"
     width="125px;">
 </p>
 
@@ -16,50 +16,92 @@
   </a>
 </p>
 
-## Overview
+# Overview
 
-This the Neon Wallet's JS SDK for the NEO blockchain platform. It is currently in use by [Neon](https://github.com/CityOfZion/neon-wallet/).
+This is the JS SDK for the NEO blockchain platform. This project aims to be a lightweight library focused on providing blockchain interactions in the browser.
 
-Visit the [docs](https://cityofzion.io/neon-js) to learn how to use this library!
+It is currently in use by [Neon](https://github.com/CityOfZion/neon-wallet/).
 
-## Getting started
+Visit the docs to learn how to use this library! [[Neo2](https://docs.coz.io/neo2/neon-js)] [[Neo3](https://docs.coz.io/neo3/neon-js)]
 
-### Installation
+# Getting started
 
-Install the package using:
+## Installation
+
+### Nodejs
 
 ```js
 npm i @cityofzion/neon-js
 ```
 
-### Build
+### Browser through CDN
+
+```html
+<script src="https://unpkg.com/@cityofzion/neon-js" />
+```
+
+## Usage
+
+### Nodejs
 
 ```js
-npm run build:dev
+const Neon = require("@cityofzion/neon-js");
+const acct = Neon.create.Account("ALq7AWrhAueN6mJNqk6FHJjnsEoPRytLdW");
 ```
 
-### Tests
+### Browser
+
+Once imported using the script tag, the module is available as a global object `Neon`.
 
 ```js
-npm run test
+console.log(Neon);
+var acct = Neon.create.Account("ALq7AWrhAueN6mJNqk6FHJjnsEoPRytLdW");
 ```
 
-### Docs
+> Find more guides on our [documentation website](https:///docs.coz.io/neo2/neon-js/docs/en/guides/basic/sendasset.html)
 
-```bash
-# Make sure you have python and pip
-$ sudo -H pip install 'sphinx>=1.5,<1.6' sphinxcontrib-versioning sphinx_rtd_theme
-$ sudo -H npm i -g jsdoc
-$ npm run build:docs
+# Contributing
+
+Please refer to [`CONTRIBUTING`](./CONTRIBUTING.md) for development practices.
+
+## Setup
+
+This repository is a typescript mono-repo using Lerna and Yarn workspaces. Please ensure the following is installed:
+
+- Yarn (a version that support workspaces)
+- Node (latest LTS aka v8 at time of writing)
+
+> `lerna` is optional and only required for advanced operations.
+
+```sh
+git clone https://github.com/CityOfZion/neon-js.git
+cd neon-js
+yarn
+yarn bootstrap
+yarn build
 ```
 
-For detailed instructions refer to [`docs/readme.md`](https://github.com/CityOfZion/neon-js/blob/master/docs/readme.md).
+## Testing
 
-### Typescript
+```sh
+yarn lint
+yarn build
+yarn dist
+yarn test:unit
+yarn test:integration
+```
 
-The typescript declaration files are included _(no need of any @types/...)_.
+# Docs
 
-## License
+We use Docusaurus for our docs website. The docs are stored in `./docs` while the main website and its configuration is in `./website`.
+
+```sh
+cd website
+yarn
+yarn start
+```
+
+# License
 
 - Open-source [MIT](https://github.com/CityOfZion/neon-js/blob/master/LICENSE.md).
 - Main author is [Ethan Fast](https://github.com/Ejhfast).
